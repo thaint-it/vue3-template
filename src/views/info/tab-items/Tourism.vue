@@ -1,5 +1,5 @@
 <template>
     <div>
-        USER MANAGEMENT
+        DU LỊCH
     </div>
 </template>

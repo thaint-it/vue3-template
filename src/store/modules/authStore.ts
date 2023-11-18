@@ -1,25 +1,21 @@
-
 import { defineStore } from 'pinia'
-export interface Auth{
-  name: string|null,
-  role: string|null,
-  accessToken:string|null
-}
-
+import type { IAuth } from '@/utils/types'
+import constants from '@/utils/constants'
+// authentication module
 const useAuthStore = defineStore('auth', {
-  state: ():Auth => {
+  state: (): IAuth => {
     return {
-      name: "thaint",
-      role: null,
-      accessToken: localStorage.getItem('accessToken')
+      role: '',
+      accessToken: localStorage.getItem(constants.ACCESS_TOKEN_KEY) || '',
+      refreskToken: ''
     }
   },
   getters: {
     user: (state) => state
   },
   actions: {
-    setAuth(data:Auth) {
-      this.$state={...data}
+    setAuth(data: IAuth) {
+      this.$state = { ...data }
     }
   }
 })

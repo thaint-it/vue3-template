@@ -1,5 +1,5 @@
 <template>
     <div>
-        USER MANAGEMENT
+        HOME
     </div>
 </template>

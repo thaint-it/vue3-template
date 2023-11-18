@@ -34,6 +34,14 @@ const router = createRouter({
       },
     },
     {
+      path: '/info/:id',
+      name: 'info',
+      component: DashboardView,
+      meta: {
+        layout: 'TheDashboardLayout',
+      },
+    },
+    {
       path: '/login',
       name: 'login',
       component: LoginView,

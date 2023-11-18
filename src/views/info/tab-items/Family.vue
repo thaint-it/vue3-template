@@ -1,5 +1,5 @@
 <template>
     <div>
-        Truyền thông
+        GIA ĐÌNH
     </div>
 </template>

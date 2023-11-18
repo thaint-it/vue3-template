@@ -20,7 +20,7 @@
                 id="first-name"
                 autocomplete="given-name"
                 v-model="username"
-                class="block w-full rounded-md border-0 py-1.5 text-gray-900 focus-visible:outline-none placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2"
+                class="block w-full text-black rounded-md border-0 py-1.5 text-gray-900 focus-visible:outline-none placeholder:text-gray-400 sm:text-sm sm:leading-6 p-2"
               />
               <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ usernameError }}</span>
             </div>
@@ -34,7 +34,7 @@
                 id="first-name"
                 autocomplete="given-name"
                 v-model="password"
-                class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                class="block w-full p-2 text-black rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
               />
               <span class="mt-2 text-sm text-red-600 dark:text-red-500">{{ passwordError }}</span>
             </div>
@@ -56,12 +56,14 @@
 </template>
 <script setup lang="ts">
 import { useAuthStore } from '@/store'
-import type { ILoginForm } from '@/types'
+import type { ILoginForm } from '@/utils/types'
 import { useForm, useField } from 'vee-validate'
 import * as yup from 'yup'
-import { login } from '@/api/auth'
+import { login, setRFToken, setAccessToken } from '@/api/auth'
 import router from '@/router'
+import '@/api/mock'
 const auth = useAuthStore()
+
 // validation
 const validationSchema = yup.object({
   username: yup.string().required('Vui lòng nhập tên đăng nhập'),
@@ -70,18 +72,21 @@ const validationSchema = yup.object({
     .required('Password is required')
     .min(6, 'Password must be at least 6 characters')
 })
-
 const { handleSubmit } = useForm<ILoginForm>({ validationSchema })
 const { value: username, errorMessage: usernameError } = useField<string>('username')
 const { value: password, errorMessage: passwordError } = useField<string>('password')
 
-// login
+// handle login
 const onLogin = handleSubmit(async (values) => {
   const data = await login(values)
+  debugger
   if (data) {
-    localStorage.setItem('accessToken', data.accessToken)
-    auth.setAuth({accessToken: data.accessToken})
-    router.push({path: '/'})
+    // set token to store
+    auth.setAuth(data)
+    setAccessToken(data.accessToken)
+    setRFToken(data.refreskToken)
+    // redirect to homepage
+    router.push({ path: '/' })
   }
 })
 </script>
