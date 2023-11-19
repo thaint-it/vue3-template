@@ -1,5 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import DashboardView from '@/views/info/DashboardView.vue'
+import HomeView from '@/views/dashboard/HomeView.vue'
+import Comminucation from '@/views/dashboard/CommunicationView.vue'
+import Culture from '@/views/dashboard/CultureView.vue'
+import Family from '@/views/dashboard/FamilyView.vue'
+import Sport from '@/views/dashboard/SportView.vue'
+import Tourism from '@/views/dashboard/TourismView.vue'
 import LoginView from '@/views/auth/LoginView.vue'
 import ForgotPasswordView from '@/views/auth/ForgotPasswordView.vue'
 import UserView from '@/views/user/UserView.vue'
@@ -12,9 +17,65 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: DashboardView,
+      component: HomeView,
       meta: {
         layout: 'TheDashboardLayout',
+        showNavigationBar:true
+      },
+    },
+    {
+      path: '/communication',
+      name: 'communication',
+      component: Comminucation,
+      meta: {
+        layout: 'TheDashboardLayout',
+        showNavigationBar:true
+      },
+    },
+    {
+      path: '/culture',
+      name: 'culture',
+      component: Culture,
+      meta: {
+        layout: 'TheDashboardLayout',
+        showNavigationBar:true
+      },
+    },
+    {
+      path: '/family',
+      name: 'family',
+      component: Family,
+      meta: {
+        layout: 'TheDashboardLayout',
+        showNavigationBar:true
+      },
+    },
+    
+    {
+      path: '/sport',
+      name: 'sport',
+      component: Sport,
+      meta: {
+        layout: 'TheDashboardLayout',
+        showNavigationBar:true
+      },
+    },
+    {
+      path: '/tourism',
+      name: 'tourism',
+      component: Tourism,
+      meta: {
+        layout: 'TheDashboardLayout',
+        showNavigationBar:true
+      },
+    },
+    {
+      path: '/communication',
+      name: 'communication',
+      component: Comminucation,
+      meta: {
+        layout: 'TheDashboardLayout',
+        showNavigationBar:true
       },
     },
     {
@@ -36,7 +97,7 @@ const router = createRouter({
     {
       path: '/info/:id',
       name: 'info',
-      component: DashboardView,
+      component: HomeView,
       meta: {
         layout: 'TheDashboardLayout',
       },

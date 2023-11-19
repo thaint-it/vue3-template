@@ -1,5 +1,5 @@
 <template>
     <div>
-        Thể thao
+        TRANG CHỦ
     </div>
 </template>

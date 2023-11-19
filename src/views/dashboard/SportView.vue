@@ -1,5 +1,5 @@
 <template>
     <div>
-        Văn hóa
+        THỂ THAO
     </div>
 </template>

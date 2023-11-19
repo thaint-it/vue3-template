@@ -12,6 +12,7 @@ module.exports = {
         secondary:'#F2F2F7',
         light: '#137DFF',
         gray:'#E3E8F1',
+        dark:'#858696',
         icon:'#2D314B',
       },
       padding:{
@@ -20,13 +21,15 @@ module.exports = {
       width:{
         "sidebar": '228px',
         "menu-icon": '16px',
-        "tab-icon":'24px'
+        "tab-icon":'24px',
+        "avatar":'36px'
 
       },
       height:{
        "menu-icon":'16px',
        'cover-image':'160px',
-       "tab-icon":'24px'
+       "tab-icon":'24px',
+       "avatar":'36px'
       }
     },
   },

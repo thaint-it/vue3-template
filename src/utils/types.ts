@@ -34,9 +34,10 @@ export interface IWard {
   name: string
 }
 
-export interface ITabs {
+export interface IMenuItem {
   id: string
   name: string
   icon: string
-  isActive: boolean
+  isActive: boolean,
+  route:string
 }

@@ -1,5 +1,5 @@
 <template>
     <div>
-        HOME
+        VĂN HÓA
     </div>
 </template>
